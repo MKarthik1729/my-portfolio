@@ -1,0 +1,103 @@
+$bg-color: rgb(104, 104, 104);
+$box: rgb(18, 144, 255);
+$txt-color: rgb(190, 225, 255);
+
+.contact {
+    background-color: $bg-color;
+    // color: $txt-color;
+    // height: 50vh;
+    h5 {
+
+        color: $box;
+        text-align: center;
+        padding-top: 20px;
+        font-size: xx-large;
+        border-bottom: 2px solid $box;
+        width: 80%;
+        margin: 0 10% 50px 10%;
+        font-weight: 500;
+    }
+
+    div {
+        padding: 0 10vw 50px 10vw;
+        @media screen and (min-width:700px) {
+            
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-basis: 100%;
+            gap: 10vw;
+        }
+
+        form {  
+            // flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            input,
+            textarea,
+            button,
+            p {
+                // display: block;
+                padding: 10px 20px;
+                border-radius: 20px;
+                font-size: larger;
+                @media screen and (min-width:700px) {
+                    width: 30vw;
+
+                }
+            }
+
+            p {
+                font-size: xx-large;
+                color: $txt-color;
+            }
+
+            button {
+                background-color: whitesmoke;
+                font-size: x-large;
+                font-weight: 500;
+                color: $bg-color;
+
+            }
+
+            button:hover {
+                background-color: rgb(26, 250, 45);
+                font-size: x-large;
+                font-weight: 700;
+            }
+        }
+        div{
+            // flex: 1;
+            color: $bg-color;
+            background-color: rgb(248, 238, 238);
+            // height: 80vh;
+            // width: 30vw;
+            border-radius: 20px;
+            text-align: center;
+            // display: block;
+            flex-direction: column;
+            // justify-content: start;
+            padding: 20px;
+            font-size: x-large;
+            // margin-bottom: 0;
+
+            gap:0;
+            p{
+                margin-bottom: 0;
+                padding-bottom: 0;
+            }
+            // te
+            @media screen and (min-width:700px) {
+                width: 40vw;
+               
+            }
+            @media screen and (max-width:700px) {
+                // padding-top: 20px;
+                margin-top: 20px;
+            }
+        }
+    }
+}

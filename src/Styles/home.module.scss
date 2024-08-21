@@ -1,0 +1,40 @@
+$bg-color:rgb(104, 104, 104);
+$box:rgb(18, 144, 255);
+$txt-color:rgb(190, 225, 255);
+
+
+.home{
+    box-sizing: border-box;
+    background-color: $bg-color;
+    color: $txt-color;
+    div{
+        padding: 2% 0 4% 8% ;
+        display:flex;
+        flex-direction: column ;
+        // align-items: center;
+        gap: 4%;
+        justify-content: center;    
+        .show{
+            position: relative;
+            transform: translateX(0);
+            font-weight: 500;
+            font-size: x-large;
+        }
+
+        h5{
+            font-weight: 400;
+            font-size: xx-large;
+        }
+    }
+    div img{
+
+        border-radius: 10px 50% 10px 50%;
+        width: 80%;
+    }
+    @media screen and (min-width:700px) {
+        display: flex;
+        div{
+            flex: 1;
+        }
+    }
+}
