@@ -4,9 +4,13 @@ $txt-color:rgb(190, 225, 255);
 
 
 .home{
+    display:flex;
+    // flex-direction: column ;
+    // gap: 20px;
     box-sizing: border-box;
     background-color: $bg-color;
     color: $txt-color;
+    padding: 20px 10%;
     div{
         padding: 2% 0 4% 8% ;
         display:flex;
@@ -16,7 +20,7 @@ $txt-color:rgb(190, 225, 255);
         justify-content: center;    
         .show{
             position: relative;
-            transform: translateX(0);
+            transform: translateX(20px);
             font-weight: 500;
             font-size: x-large;
         }
@@ -24,6 +28,7 @@ $txt-color:rgb(190, 225, 255);
         h5{
             font-weight: 400;
             font-size: xx-large;
+
         }
     }
     div img{
