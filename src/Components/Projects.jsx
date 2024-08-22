@@ -1,6 +1,8 @@
 import React, { useRef } from 'react'
 import { projects as styles } from './styled'
 import {motion} from 'framer-motion'
+// import Art from '../assets/Art.png'
+import  Data  from '../Data.js'
 function Projects() {
   const container = {
     hidden: { opacity: 1, scale: 0 },
@@ -37,12 +39,12 @@ function Projects() {
     initial="hidden"
     animate="visible"
   >
-    {[0, 1, 2, 3,4,5].map((index) => (
-      <motion.li key={index} className={styles.item} variants={item}>
+    {Data.map((ele) => (
+      <motion.li key={ele.id} className={styles.item} variants={item}>
         
-        <img src='https://images.pexels.com/photos/3225517/pexels-photo-3225517.jpeg?auto=compress&cs=tinysrgb&w=600' />
-        <h5>Take Art to Heart</h5>
-        <p>MERN Stack</p>
+        <img src={ele.img} />
+        <h5>{ele.title}</h5>
+        <p>{ele.tag}</p>
       </motion.li>
     ))}
   </motion.ul>

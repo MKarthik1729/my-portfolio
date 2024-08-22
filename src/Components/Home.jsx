@@ -61,7 +61,7 @@ return (
         <motion.p
         variants={item}
         className={styles.des}
-        >A full stack developer</motion.p>
+        > &emsp;  &emsp;  Full stack developer</motion.p>
       </motion.div>
       <motion.div variants={items}           
       initial="hidden"
