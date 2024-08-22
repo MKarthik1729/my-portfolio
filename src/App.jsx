@@ -2,25 +2,27 @@
 import { useEffect } from 'react';
 import {Navbar,Home, Projects} from './Components'
 import Contact from './Components/Contact'
-// import Home from './Components/Navbar'
-function App() {
-  useEffect(() => {
-    setTimeout(()=>{
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import TakeArttoHeart from './Components/Project/TakeArttoHeart';
 
-      const idToScrollTo = 'trail'; // ID of the section you want to scroll to
-      const element = document.getElementById(idToScrollTo);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    },2000)
-  }, []); 
+function App() {
+
   return (
-<div>
+    <BrowserRouter>
+
+<Routes>
+  <Route path='/' exact element={<div>
 <Navbar />
 <Home  />
 <Projects  />
 <Contact />
-</div>
+</div>}/>
+<Route path='/art' element={<TakeArttoHeart />}/>
+
+
+</Routes>
+
+    </BrowserRouter>
   )
 }
 

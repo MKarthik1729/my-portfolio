@@ -5,13 +5,16 @@ function Contact() {
     <section id='contact' className={styles.contact}>
       <h5>Contact</h5>
       <div>
-      <form>
+      {/* <form action="mailto:mkarthik1729@gmail.com" method="post" enctype="text/plain"> */}
+        <form>
         <p>Send me message</p>
         <input type='text' placeholder='Subject' />
         <input type='email' placeholder='Email' />
         <input type='number' placeholder='Phone' />
         <textarea  rows='8' placeholder='message' />
-        <button> Send</button>
+        <button onClick={()=>{
+          alert("This feature is not yet available. \n Please use mail (mkarthik1729@mail.com) or mobile (7671859776)")
+        }}> Send</button>
       </form>
       <div>
         {/* <h5>Hello</h5> */}

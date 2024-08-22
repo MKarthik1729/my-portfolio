@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import {navbar as styles} from './styled'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 function Navbar() {
     // const fa = window.innerWidth>700?true:false;
     const [dis,setDisplay] = useState( window.innerWidth>700?true:false)
@@ -29,7 +30,7 @@ function Navbar() {
     className={(dis)?styles.notHovered:styles.hovered}>
             <li><a href='#trail'>Projects</a></li>
             <li ><a href='#contact'>Contact</a></li>
-            <li>Resume</li>
+            <li><Link to='/art'>Resume</Link></li>
         </motion.ul>
 
          <i 
