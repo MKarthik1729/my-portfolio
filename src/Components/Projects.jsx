@@ -3,6 +3,7 @@ import { projects as styles } from './styled'
 import {motion} from 'framer-motion'
 // import Art from '../assets/Art.png'
 import  Data  from '../Data.js'
+// import { Link } from 'react-router-dom';
 function Projects() {
 
 
@@ -80,12 +81,14 @@ console.log(Mouse)
     animate={Mouse?"visible":"hidden"}
   >
     {Data.map((ele) => (
-      <motion.li key={ele.id} className={styles.item} variants={item}>
+      <motion.a key={ele.id} 
+       href={ele.link}
+      className={styles.item} variants={item}>
         
         <img src={ele.img} />
         <h5>{ele.title}</h5>
         <p>{ele.tag}</p>
-      </motion.li>
+      </motion.a>
     ))}
   </motion.ul>
       </div>

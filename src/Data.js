@@ -8,37 +8,43 @@ const Data = [
         "id":1,
         "img":Art,
         "title":"Take Art to Heart",
-        "tag":"MERN stack"
+        "tag":"MERN stack",
+        "link":"https://frontend-wbd.onrender.com/"
     },
     {
         "id":2,
-        "img":Art,
-        "title":"Library System",
-        "tag":"Java and MySQL"
+        "img":"./public/javaMysql.jpg",
+        "title":"Library System",  
+        "tag":"Java and MySQL",
+        "link":"#skills"
     },
     {
         "id":3,
-        "img":Art,
-        "title":"Music Genre",
-        "tag":"Python, AI and ML"
+        "img":'./public/portfolio.jpeg',
+        "title":"Portfolio",
+        "tag":"React Bootstrap framer-motion",
+        "link":"/"
     },
     {
         "id":4,
-        "img":Art,
+        "img":'./public/robo.jpg',
         "title":"Bluetooth Vehicle",
-        "tag":"IOT and Aurdino"
+        "tag":"IOT and Aurdino",
+        "link":"#skills"
     },
     {
         "id":5,
-        "img":Art,
-        "title":"NextOrder",
-        "tag":"React"
+        "img":"./public/scrape.png",
+        "title":"Automated Web Scrapper",
+        "tag":"Python Selenium",
+        "link":"https://github.com/MKarthik1729/automatedWebScrapper"
     },
     {
         "id":6,
-        "img":Art,
+        "img":'./public/sve.jpeg',
         "title":"Sri Velu Enterprises",
-        "tag":"React"
+        "tag":"React Framer-motion Bootstrap",
+        "link":"https://sriveluenterprises.vercel.app/"
     }
 ]
 
