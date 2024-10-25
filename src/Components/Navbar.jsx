@@ -28,6 +28,7 @@ function Navbar() {
         initial="hidden"
         animate="visible"
     className={(dis)?styles.notHovered:styles.hovered}>
+                  <li><a href='#skills'>Skills</a></li>
             <li><a href='#trail'>Projects</a></li>
             <li ><a href='#contact'>Contact</a></li>
             <li><Link to='/art'>Resume</Link></li>
