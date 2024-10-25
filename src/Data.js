@@ -13,35 +13,35 @@ const Data = [
     },
     {
         "id":2,
-        "img":"./public/javaMysql.jpg",
+        "img":"./javaMysql.jpg",
         "title":"Library System",  
         "tag":"Java and MySQL",
         "link":"#skills"
     },
     {
         "id":3,
-        "img":'./public/portfolio.jpeg',
+        "img":'./portfolio.jpeg',
         "title":"Portfolio",
         "tag":"React Bootstrap framer-motion",
         "link":"/"
     },
     {
         "id":4,
-        "img":'./public/robo.jpg',
+        "img":'./robo.jpg',
         "title":"Bluetooth Vehicle",
         "tag":"IOT and Aurdino",
         "link":"#skills"
     },
     {
         "id":5,
-        "img":"./public/scrape.png",
+        "img":"./scrape.png",
         "title":"Automated Web Scrapper",
         "tag":"Python Selenium",
         "link":"https://github.com/MKarthik1729/automatedWebScrapper"
     },
     {
         "id":6,
-        "img":'./public/sve.jpeg',
+        "img":'./sve.jpeg',
         "title":"Sri Velu Enterprises",
         "tag":"React Framer-motion Bootstrap",
         "link":"https://sriveluenterprises.vercel.app/"
