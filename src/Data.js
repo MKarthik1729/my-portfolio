@@ -13,7 +13,7 @@ const Data = [
     },
     {
         "id":2,
-        "img":"./javaMysql.jpg",
+        "img":"./javamysql.jpg",
         "title":"Library System",  
         "tag":"Java and MySQL",
         "link":"#skills"
