@@ -74,7 +74,7 @@ console.log(Mouse)
       <h5>Projects</h5>
       <div >
 
-      <motion.ul
+      {/* <motion.ul
     className={styles.container}
     variants={container}
     initial={Mouse?"hidden":"visible"}
@@ -90,7 +90,7 @@ console.log(Mouse)
         <p>{ele.tag}</p>
       </motion.a>
     ))}
-  </motion.ul>
+  </motion.ul> */}
       </div>
     </div>
   )
