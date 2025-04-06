@@ -19,6 +19,12 @@ function Navbar() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  useEffect(() => {
+    if (window.innerWidth <= 700) {
+      setIsOpen(false);
+    }
+  }, [location]);
+
   const navItems = [
     { path: '/', label: 'Home' },
     { path: '/skills', label: 'Skills' },
@@ -74,7 +80,7 @@ function Navbar() {
         <AnimatePresence>
           {isOpen && (
             <motion.ul
-              className={styles.navLinks}
+              className={`${styles.navLinks} ${isOpen ? styles.visible : ''}`}
               variants={containerVariants}
               initial="hidden"
               animate="visible"
