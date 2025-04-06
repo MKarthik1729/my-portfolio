@@ -48,7 +48,7 @@
 .projectCard {
   background: $card-bg;
   backdrop-filter: blur(10px);
-  border-radius: $radius-lg;
+  border-radius: $border-radius-lg;
   overflow: hidden;
   text-decoration: none;
   border: 1px solid $card-border;
@@ -127,7 +127,7 @@
   color: $text-tertiary;
   padding: $spacing-xs $spacing-sm;
   background: rgba($primary, 0.1);
-  border-radius: $radius-full;
+  border-radius: $border-radius-full;
   transition: all $transition-normal;
 }
   

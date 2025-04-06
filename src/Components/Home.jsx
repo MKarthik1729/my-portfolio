@@ -1,11 +1,18 @@
-import React from 'react';
-import { motion, useInView } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import styles from '../Styles/home.module.scss';
 
 function Home() {
-  const ref = React.useRef(null);
-  const isInView = useInView(ref, { once: false, margin: "-100px" });
+  const [hasVisited, setHasVisited] = useState(false);
+
+  useEffect(() => {
+    const visited = localStorage.getItem('hasVisitedHome');
+    if (!visited) {
+      setHasVisited(true);
+      localStorage.setItem('hasVisitedHome', 'true');
+    }
+  }, []);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -91,12 +98,12 @@ function Home() {
 
   return (
     <motion.div 
-      ref={ref}
       className={styles.home}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
+      initial={hasVisited ? "visible" : "hidden"}
+      animate="visible"
       variants={containerVariants}
     >
+      <div className={styles.honeycombPattern} />
       <div className={styles.content}>
         <motion.div className={styles.textContent} variants={containerVariants}>
           <motion.h1 variants={textVariants} className={styles.greeting}>
