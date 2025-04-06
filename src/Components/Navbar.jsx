@@ -1,45 +1,121 @@
-import React, { useState } from 'react'
-import {navbar as styles} from './styled'
-import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaBars, FaTimes, FaSun, FaMoon } from 'react-icons/fa';
+import { navbar as styles } from './styled';
+import { useTheme } from '../context/ThemeContext';
+
 function Navbar() {
-    // const fa = window.innerWidth>700?true:false;
-    const [dis,setDisplay] = useState( window.innerWidth>700?true:false)
-    
-    const HandleSideBar = ()=>{
-        setDisplay(!dis)
-    }
-    const container = {
-      hidden:{
+  const [isOpen, setIsOpen] = useState(window.innerWidth > 700);
+  const location = useLocation();
+  const { isDarkMode, toggleTheme } = useTheme();
 
-      }, 
-      visible:{
+  useEffect(() => {
+    const handleResize = () => {
+      setIsOpen(window.innerWidth > 700);
+    };
 
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const navItems = [
+    { path: '/', label: 'Home' },
+    { path: '/skills', label: 'Skills' },
+    { path: '/projects', label: 'Projects' },
+    { path: '/contact', label: 'Contact' },
+    { path: '/resume', label: 'Resume' },
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
       }
     }
-  
+  };
+
+  const itemVariants = {
+    hidden: { y: -20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100
+      }
+    }
+  };
+
   return (
-    <div id='home' style={{width:"100vw",overflow:'hidden'}}>
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ type: "spring", stiffness: 100 }}
+      className={styles.navbar}
+    >
+      <div className={styles.navContent}>
+        <Link to="/" className={styles.logo}>
+          Portfolio
+        </Link>
 
-    <div className={styles.navbar}>
-        <a href='#home'>Home</a>
-    <motion.ul 
-        variants={container}
-        initial="hidden"
-        animate="visible"
-    className={(dis)?styles.notHovered:styles.hovered}>
-                  <li><a href='#skills'>Skills</a></li>
-            <li><a href='#trail'>Projects</a></li>
-            <li ><a href='#contact'>Contact</a></li>
-            <li><Link to='/art'>Resume</Link></li>
-        </motion.ul>
+        <div className={styles.navControls}>
+          <button
+            className={styles.menuButton}
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <FaTimes /> : <FaBars />}
+          </button>
+        </div>
 
-         <i 
-        onClick={HandleSideBar}
-        className={`fa ${!dis? 'fa-bars':'fa-times'} ${styles.icon}`} aria-hidden="true"></i>
-    </div>
-    </div>
-  )
+        <AnimatePresence>
+          {isOpen && (
+            <motion.ul
+              className={styles.navLinks}
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+            >
+              {navItems.map((item) => (
+                <motion.li
+                  key={item.path}
+                  variants={itemVariants}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Link
+                    to={item.path}
+                    className={location.pathname === item.path ? styles.active : ''}
+                  >
+                    {item.label}
+                  </Link>
+                </motion.li>
+              ))}
+              <motion.li
+                variants={itemVariants}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <motion.button
+                  className={styles.themeToggle}
+                  onClick={toggleTheme}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  aria-label="Toggle theme"
+                >
+                  {isDarkMode ? <FaSun /> : <FaMoon />}
+                </motion.button>
+              </motion.li>
+            </motion.ul>
+          )}
+        </AnimatePresence>
+      </div>
+    </motion.nav>
+  );
 }
 
-export default Navbar
+export default Navbar;

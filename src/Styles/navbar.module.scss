@@ -1,85 +1,158 @@
-$dark-highlight:rgb(18, 144, 255);
-$nav-color:rgb(190, 225, 255);
-$nav-background:rgb(104, 104, 104);
-.navbar{
-    display: flex;
-    height: 12vh;
-    
-    width: 100%;
-    justify-content: space-between;
-    background-color: $nav-background;
-    color: $nav-color;
-    padding:  1.5% 10% ;    
-    text-decoration: none;
-    a{
-    color: $nav-color;
-    font-size: 24px;
-    @media  screen  and (min-width:700px){
-        width: 30%;
-    }
-    }
-    ul{
-        list-style: none;
-        @media screen and (min-width:700px) {
-            width: 70%;
-            display: flex ;
-            justify-content: space-evenly;
-        }
-        @media screen and (max-width:700px) {
-            position: absolute;
-            right:0;
-            top: 12vh;
-            display: block;
-            height: 100%;
-            padding: 10px 20% 0 10%;
-            background-color: $nav-background;
-        }
+@import './variables.scss';
 
-    }
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-fixed;
+  background-color: $bg-secondary;
+  color: $text-primary;
+  padding: 0;
+  box-shadow: $shadow-md;
+  backdrop-filter: blur(8px);
+  background-color: rgba($bg-secondary, 0.8);
+}
 
-    
-ul li,a {
-    // display: inline-block;
+.navContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $spacing-md $spacing-xl;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 12vh;
+}
+
+.logo {
+  color: $text-primary;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color $transition-normal;
+
+  &:hover {
+    color: $primary-light;
+  }
+}
+
+.navControls {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+}
+
+.themeToggle {
+  background: none;
+  border: none;
+  color: $text-primary;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: $spacing-sm;
+  border-radius: $radius-full;
+  transition: all $transition-normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    color: $primary-light;
+    background: rgba($primary, 0.1);
+  }
+}
+
+.menuButton {
+  display: none;
+  background: none;
+  border: none;
+  color: $text-primary;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: $spacing-sm;
+  transition: color $transition-normal;
+
+  &:hover {
+    color: $primary-light;
+  }
+
+  @media screen and (max-width: $breakpoint-md) {
+    display: block;
+  }
+}
+
+.navLinks {
+  display: flex;
+  gap: $spacing-xl;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+
+  li {
     position: relative;
-    text-decoration: none;
-    font-size: 24px;
-    @media screen and (max-width:700px) {
-        padding: 20px 0;
-    }
-}  
+    
+    a {
+      color: $text-primary;
+      text-decoration: none;
+      font-size: 1.1rem;
+      padding: $spacing-sm;
+      transition: color $transition-normal;
 
-ul li::before,a::before {
-    content: '';
+      &::before {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: $primary;
+        transition: width $transition-normal;
+      }
+
+      &:hover {
+        color: $primary-light;
+        
+        &::before {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .active {
+    color: $primary-light;
+    
+    &::before {
+      width: 100%;
+      background-color: $primary;
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-md) {
     position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    color: $dark-highlight;
-    background-color: $dark-highlight;
-    transition: width 0.4s ease;
-}
+    top: 12vh;
+    right: 0;
+    flex-direction: column;
+    background-color: $bg-secondary;
+    padding: $spacing-md;
+    width: 100%;
+    gap: $spacing-md;
+    box-shadow: $shadow-md;
 
-a:hover::before{
-    // width: 15%;
-    @media  screen  and (max-width:700px){
-        width: 80%;
+    li {
+      width: 100%;
+      text-align: center;
+      
+      a {
+        display: block;
+        padding: $spacing-md;
+        
+        &::before {
+          bottom: 0;
+        }
+      }
     }
-    @media  screen  and (min-width:700px){
-        width: 15%;
-    }
-}
-ul li a{
-    text-decoration: none;
-}
-
-ul li:hover::before {
-    width: 80%;
-    // color: $dark-highlight;
-}
-ul li:hover,a:hover{
-    color: $dark-highlight;
-}
+  }
 }
 
 .hovered{

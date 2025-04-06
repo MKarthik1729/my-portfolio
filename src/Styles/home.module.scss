@@ -1,45 +1,165 @@
-$bg-color:rgb(104, 104, 104);
-$box:rgb(18, 144, 255);
-$txt-color:rgb(190, 225, 255);
+@import './variables.scss';
 
+.home {
+  min-height: 100vh;
+  background-color: $bg-primary;
+  color: $text-primary;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: hidden;
+  position: relative;
+}
 
-.home{
-    display:flex;
-    // flex-direction: column ;
-    // gap: 20px;
-    box-sizing: border-box;
-    background-color: $bg-color;
-    color: $txt-color;
-    padding: 20px 10%;
-    div{
-        padding: 2% 0 4% 8% ;
-        display:flex;
-        flex-direction: column ;
-        // align-items: center;
-        gap: 4%;
-        justify-content: center;    
-        .show{
-            position: relative;
-            transform: translateX(20px);
-            font-weight: 500;
-            font-size: x-large;
-        }
+.content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $spacing-xl;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: $spacing-xl;
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
 
-        h5{
-            font-weight: 400;
-            font-size: xx-large;
+  @media screen and (max-width: $breakpoint-md) {
+    padding: $spacing-md;
+    position: relative;
+    top: 0;
+    right: 0;
+    transform: none;
+    justify-content: center;
+  }
+}
 
-        }
+.textContent {
+  flex: 1;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  text-align: left;
+  padding: $spacing-xl;
+  background: rgba($bg-secondary, 0.05);
+  border-radius: $radius-lg;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba($primary, 0.1);
+
+  @media screen and (max-width: $breakpoint-md) {
+    align-items: center;
+    padding: $spacing-lg;
+    text-align: center;
+  }
+}
+
+.greeting {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: $primary-light;
+  margin: 0;
+}
+
+.name {
+  font-size: 4rem;
+  font-weight: 700;
+  margin: 0;
+  background: $gradient-primary;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+
+  @media screen and (max-width: $breakpoint-md) {
+    font-size: 3rem;
+  }
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 0;
+  color: $text-secondary;
+  opacity: 0.9;
+
+  @media screen and (max-width: $breakpoint-md) {
+    font-size: 1.5rem;
+  }
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: $spacing-md 0;
+  color: $text-tertiary;
+  max-width: 600px;
+  margin-left: 0;
+  margin-right: auto;
+
+  @media screen and (max-width: $breakpoint-md) {
+    font-size: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.socialLinks {
+  display: flex;
+  gap: $spacing-lg;
+  margin-top: $spacing-md;
+  justify-content: flex-start;
+
+  @media screen and (max-width: $breakpoint-md) {
+    justify-content: center;
+  }
+
+  a {
+    color: $text-secondary;
+    font-size: 1.5rem;
+    transition: all $transition-normal;
+    padding: $spacing-sm;
+    border-radius: 50%;
+    background: rgba($bg-secondary, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      color: $primary-light;
+      transform: translateY(-2px);
+      background: rgba($primary, 0.1);
     }
-    div img{
+  }
+}
 
-        border-radius: 10px 50% 10px 50%;
-        width: 80%;
-    }
-    @media screen and (min-width:700px) {
-        display: flex;
-        div{
-            flex: 1;
-        }
-    }
+.imageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+}
+
+.profileImage {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-lg;
+  object-fit: cover;
+  aspect-ratio: 1;
+  border: 3px solid $primary;
+  transition: all $transition-normal;
+
+  &:hover {
+    transform: scale(1.02);
+    border-color: $primary-light;
+    box-shadow: 0 0 20px rgba($primary, 0.3);
+  }
+
+  @media screen and (max-width: $breakpoint-md) {
+    max-width: 300px;
+  }
 }

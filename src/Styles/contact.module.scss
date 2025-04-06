@@ -1,103 +1,211 @@
-$bg-color: rgb(104, 104, 104);
-$box: rgb(18, 144, 255);
-$txt-color: rgb(190, 225, 255);
+@import './variables.scss';
 
 .contact {
-    background-color: $bg-color;
-    // color: $txt-color;
-    // height: 50vh;
-    h5 {
+  min-height: 100vh;
+  background: $gradient-dark;
+  padding: $spacing-xl 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-        color: $box;
-        text-align: center;
-        padding-top: 20px;
-        font-size: xx-large;
-        border-bottom: 2px solid $box;
-        width: 80%;
-        margin: 0 10% 50px 10%;
-        font-weight: 500;
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-xl;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: $spacing-sm;
+  background: $gradient-primary;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  @media screen and (max-width: $breakpoint-md) {
+    font-size: 2.5rem;
+  }
+}
+
+.subtitle {
+  text-align: center;
+  color: $text-secondary;
+  font-size: 1.2rem;
+  margin-bottom: $spacing-xl;
+  opacity: 0.8;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-xl;
+  
+  @media screen and (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form {
+  background: $card-bg;
+  backdrop-filter: blur(10px);
+  padding: $spacing-xl;
+  border-radius: $radius-lg;
+  border: 1px solid $card-border;
+  transition: all $transition-normal;
+
+  &:focus-within {
+    border-color: $primary;
+    box-shadow: 0 10px 20px $card-hover-shadow;
+    background: $card-hover-bg;
+  }
+}
+
+.formGroup {
+  margin-bottom: $spacing-md;
+  
+  input,
+  textarea {
+    width: 100%;
+    padding: $spacing-md;
+    background: rgba($bg-primary, 0.3);
+    border: 1px solid $card-border;
+    border-radius: $radius-md;
+    color: $text-primary;
+    font-size: 1rem;
+    transition: all $transition-normal;
+    
+    &:focus {
+      outline: none;
+      border-color: $primary;
+      box-shadow: 0 0 0 2px rgba($primary, 0.2);
+      background: rgba($bg-primary, 0.5);
+    }
+    
+    &::placeholder {
+      color: $text-tertiary;
+    }
+  }
+  
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+}
+
+.submitButton {
+  width: 100%;
+  padding: $spacing-md;
+  background: $gradient-primary;
+  border: none;
+  border-radius: $radius-md;
+  color: $text-primary;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all $transition-normal;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba($primary, 0.3);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.info {
+  background: $card-bg;
+  backdrop-filter: blur(10px);
+  padding: $spacing-xl;
+  border-radius: $radius-lg;
+  border: 1px solid $card-border;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all $transition-normal;
+
+  &:hover {
+    border-color: $primary;
+    box-shadow: 0 10px 20px $card-hover-shadow;
+    background: $card-hover-bg;
+  }
+}
+
+.infoContent {
+  h3 {
+    font-size: 1.5rem;
+    color: $text-primary;
+    margin-bottom: $spacing-md;
+    transition: color $transition-normal;
+  }
+  
+  p {
+    color: $text-secondary;
+    line-height: 1.6;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.contactInfo {
+  margin-top: auto;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  margin-bottom: $spacing-md;
+  transition: all $transition-normal;
+  padding: $spacing-sm;
+  border-radius: $radius-md;
+  
+  &:hover {
+    transform: translateX(5px);
+    background: rgba($primary, 0.1);
+
+    .icon {
+      color: $primary-light;
+      transform: scale(1.1);
     }
 
-    div {
-        padding: 0 10vw 50px 10vw;
-        @media screen and (min-width:700px) {
-            
-            height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            flex-basis: 100%;
-            gap: 10vw;
-        }
-
-        form {  
-            // flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-
-            input,
-            textarea,
-            button,
-            p {
-                // display: block;
-                padding: 10px 20px;
-                border-radius: 20px;
-                font-size: larger;
-                @media screen and (min-width:700px) {
-                    width: 30vw;
-
-                }
-            }
-
-            p {
-                font-size: xx-large;
-                color: $txt-color;
-            }
-
-            button {
-                background-color: whitesmoke;
-                font-size: x-large;
-                font-weight: 500;
-                color: $bg-color;
-
-            }
-
-            button:hover {
-                background-color: rgb(26, 250, 45);
-                font-size: x-large;
-                font-weight: 700;
-            }
-        }
-        div{
-            // flex: 1;
-            color: #000;
-            background-color: #fff;
-            // height: 80vh;
-            // width: 30vw;
-            border-radius: 20px;
-            text-align: center;
-            // display: block;
-            flex-direction: column;
-            // justify-content: start;
-            padding: 20px;
-            font-size: x-large;
-            // margin-bottom: 0;
-
-            gap:0;
-            p{
-                margin-bottom: 0;
-                padding-bottom: 0;
-            }
-            // te
-            @media screen and (min-width:700px) {
-                width: 40vw;
-               
-            }
-            @media screen and (max-width:700px) {
-                // padding-top: 20px;
-                margin-top: 20px;
-            }
-        }
+    a {
+      color: $primary-light;
     }
+  }
+  
+  .icon {
+    font-size: 1.5rem;
+    color: $text-secondary;
+    transition: all $transition-normal;
+  }
+  
+  a {
+    color: $text-primary;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color $transition-normal;
+  }
+}
+
+.socialLinks {
+  display: flex;
+  gap: $spacing-md;
+  margin-top: $spacing-lg;
+  
+  a {
+    color: $text-secondary;
+    font-size: 1.5rem;
+    padding: $spacing-sm;
+    border-radius: $radius-full;
+    transition: all $transition-normal;
+    
+    &:hover {
+      color: $primary-light;
+      transform: translateY(-5px);
+    }
+  }
 }

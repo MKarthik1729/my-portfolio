@@ -1,0 +1,132 @@
+// Theme Mixin
+@mixin theme-colors($theme) {
+  @if $theme == 'light' {
+    // Light Theme Colors
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --primary-light: #60a5fa;
+    
+    --secondary: #64748b;
+    --secondary-dark: #475569;
+    --secondary-light: #94a3b8;
+    
+    --accent: #f59e0b;
+    --accent-dark: #d97706;
+    --accent-light: #fbbf24;
+    
+    --bg-primary: #f8fafc;
+    --bg-secondary: #f1f5f9;
+    --bg-tertiary: #e2e8f0;
+    
+    --card-bg: #ffffff;
+    --card-border: rgba(0, 0, 0, 0.1);
+    --card-hover-shadow: rgba(37, 99, 235, 0.2);
+    --card-hover-bg: #f8fafc;
+    
+    --text-primary: #1e293b;
+    --text-secondary: #475569;
+    --text-tertiary: #64748b;
+  } @else {
+    // Dark Theme Colors
+    --primary: #3b82f6;
+    --primary-dark: #2563eb;
+    --primary-light: #60a5fa;
+    
+    --secondary: #94a3b8;
+    --secondary-dark: #64748b;
+    --secondary-light: #cbd5e1;
+    
+    --accent: #f59e0b;
+    --accent-dark: #d97706;
+    --accent-light: #fbbf24;
+    
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
+    
+    --card-bg: rgba(30, 41, 59, 0.7);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --card-hover-shadow: rgba(59, 130, 246, 0.3);
+    --card-hover-bg: rgba(30, 41, 59, 0.95);
+    
+    --text-primary: #f8fafc;
+    --text-secondary: #e2e8f0;
+    --text-tertiary: #cbd5e1;
+  }
+}
+
+// Color Palette
+$primary: var(--primary);
+$primary-dark: var(--primary-dark);
+$primary-light: var(--primary-light);
+
+$secondary: var(--secondary);
+$secondary-dark: var(--secondary-dark);
+$secondary-light: var(--secondary-light);
+
+$accent: var(--accent);
+$accent-dark: var(--accent-dark);
+$accent-light: var(--accent-light);
+
+// Background Colors
+$bg-primary: var(--bg-primary);
+$bg-secondary: var(--bg-secondary);
+$bg-tertiary: var(--bg-tertiary);
+
+// Card Colors
+$card-bg: var(--card-bg);
+$card-border: var(--card-border);
+$card-hover-shadow: var(--card-hover-shadow);
+$card-hover-bg: var(--card-hover-bg);
+
+// Text Colors
+$text-primary: var(--text-primary);
+$text-secondary: var(--text-secondary);
+$text-tertiary: var(--text-tertiary);
+
+// Status Colors
+$success: #22c55e;      // Green - Success states
+$error: #ef4444;        // Red - Error states
+$warning: #f59e0b;      // Amber - Warning states
+$info: #3b82f6;         // Blue - Info states
+
+// Gradients
+$gradient-primary: linear-gradient(135deg, $primary, $primary-dark);
+$gradient-accent: linear-gradient(135deg, $accent, $accent-dark);
+$gradient-dark: linear-gradient(135deg, $bg-primary, $bg-secondary);
+
+// Shadows
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+// Border Radius
+$radius-sm: 0.25rem;
+$radius-md: 0.5rem;
+$radius-lg: 1rem;
+$radius-full: 9999px;
+
+// Spacing
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+
+// Transitions
+$transition-fast: 150ms ease;
+$transition-normal: 300ms ease;
+$transition-slow: 500ms ease;
+
+// Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+
+// Z-index
+$z-negative: -1;
+$z-normal: 1;
+$z-tooltip: 10;
+$z-fixed: 100;
+$z-modal: 1000; 

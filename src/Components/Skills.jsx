@@ -1,84 +1,98 @@
-import React from 'react'
-import { skills as styles } from './styled'
-import { FaHtml5 } from "react-icons/fa";
-import { FaCss3Alt } from "react-icons/fa";
-import { FaJsSquare } from "react-icons/fa";
-import { FaReact } from "react-icons/fa";
-import { FaNode } from "react-icons/fa";
-import { GrMysql } from "react-icons/gr";
-import { SiMongodb } from "react-icons/si";
-import { FaPython } from "react-icons/fa";
-import { FaJava } from "react-icons/fa";
-import { TbBrandFramerMotion } from "react-icons/tb";
-import { FaBootstrap } from "react-icons/fa";
-import { SiMui } from "react-icons/si";
+import React from 'react';
+import { skills as styles } from './styled';
+import { motion } from 'framer-motion';
+import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNode, FaPython, FaJava, FaArrowRight } from "react-icons/fa";
+import { Link } from 'react-router-dom';
+
 function Skills() {
+  const skills = [
+    { icon: <FaPython />, name: "Python", category: "Language" },
+    { icon: <FaHtml5 />, name: "HTML", category: "Frontend" },
+    { icon: <FaCss3Alt />, name: "CSS", category: "Frontend" },
+    { icon: <FaJsSquare />, name: "JavaScript", category: "Language" },
+    { icon: <FaJava />, name: "Java", category: "Language" },
+    { icon: <FaReact />, name: "React", category: "Frontend" },
+    { icon: <FaNode />, name: "Node.js", category: "Backend" },
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 10
+      }
+    }
+  };
+
   return (
-    <div id='skills' className={styles.skill}>
-      <h2>Skills</h2>
-      <div>
-        <div>
-        <FaPython />
-        <p>Python</p>
-        </div>
-        <div>
+    <section id="skills" className={styles.skills}>
+      <motion.div 
+        className={styles.container}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        variants={containerVariants}
+      >
+        <motion.h2 variants={itemVariants} className={styles.title}>
+          Technical Skills
+        </motion.h2>
+        <motion.p variants={itemVariants} className={styles.subtitle}>
+          Technologies I work with
+        </motion.p>
+        
+        <motion.div className={styles.skillsGrid} variants={containerVariants}>
+          {skills.map((skill, index) => (
+            <motion.div
+              key={index}
+              className={styles.skillCard}
+              variants={itemVariants}
+              whileHover={{ 
+                scale: 1.05,
+                transition: { duration: 0.2 }
+              }}
+            >
+              <div className={styles.iconWrapper}>
+                {skill.icon}
+              </div>
+              <h3 className={styles.skillName}>{skill.name}</h3>
+              <span className={styles.category}>{skill.category}</span>
+            </motion.div>
+          ))}
           
-        <FaHtml5 />
-        <p>HTML</p>
-          </div>
-          <div>
-          
-        <FaCss3Alt />
-        <p>CSS</p>
-          </div>
-          <div>
-          
-        <FaJsSquare />
-        <p>JavaScript</p>
-          </div>
-          <div>
-          
-        <FaJava />
-        <p>JAVA</p>
-          </div>
-          <div>
-          
-        <FaReact />
-        <p>React JS</p>
-          </div>
-          <div>
-          
-        <FaNode />
-        <p>Node JS</p>
-          </div>
-          <div>
-          
-        <GrMysql />
-        <p>MySQL</p>
-          </div>
-
-          <div>
-        <SiMongodb />
-        <p>MongoDb</p>
-          </div>
-
-          <div>
-        <TbBrandFramerMotion />
-        <p>MongoDb</p>
-          </div>
-          <div>
-        <FaBootstrap />
-        <p>Bootstrap</p>
-          </div>
-          <div>
-        <SiMui />
-        <p>Material-UI</p>
-          </div>
-
-      </div>
-
-    </div>
-  )
+          <motion.div
+            className={styles.skillCard}
+            variants={itemVariants}
+            whileHover={{ 
+              scale: 1.05,
+              transition: { duration: 0.2 }
+            }}
+          >
+            <Link to="/skills" className={styles.viewMoreLink}>
+              <div className={styles.iconWrapper}>
+                <FaArrowRight />
+              </div>
+              <h3 className={styles.skillName}>View All Skills</h3>
+              <span className={styles.category}>See More</span>
+            </Link>
+          </motion.div>
+        </motion.div>
+      </motion.div>
+    </section>
+  );
 }
 
-export default Skills
+export default Skills;
