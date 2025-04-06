@@ -1,7 +1,7 @@
 // import { useState } from 'react'
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ThemeProvider } from './Context/ThemeContext';
+import { ThemeProvider } from './context/ThemeContext';
 import { Navbar, Home, Projects, Skills, SkillPage, Contact, Resume, NotFound } from './Components';
 import ProjectDetail from './Components/Project/ProjectDetail';
 import './App.css';
