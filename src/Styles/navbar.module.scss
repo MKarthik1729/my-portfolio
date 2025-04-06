@@ -66,14 +66,14 @@
   background: none;
   border: none;
   color: $text-primary;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   cursor: pointer;
   padding: $spacing-sm;
   transition: color $transition-normal;
   background-color: rgba($bg-secondary, 0.8);
   border-radius: $border-radius-full;
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   align-items: center;
   justify-content: center;
 
@@ -142,10 +142,10 @@
     left: 0;
     right: 0;
     flex-direction: column;
-    background-color: rgba($bg-secondary, 0.98);
+    background-color: $bg-secondary;
     padding: $spacing-md;
     width: 100%;
-    gap: $spacing-md;
+    gap: $spacing-xs;
     box-shadow: $shadow-md;
     z-index: $z-fixed;
     backdrop-filter: blur(8px);
@@ -161,20 +161,21 @@
     li {
       width: 100%;
       text-align: center;
-      background-color: rgba($bg-tertiary, 0.5);
+      background-color: $bg-tertiary;
       border-radius: $border-radius-md;
-      margin-bottom: $spacing-sm;
+      margin-bottom: $spacing-xs;
       
       a {
         display: block;
-        padding: $spacing-md;
+        padding: $spacing-sm;
         font-size: 1.2rem;
         font-weight: 500;
+        color: $text-primary;
         
         &::before {
           bottom: 0;
         }
-
+        
         &.active {
           color: $primary-light;
           background-color: rgba($primary, 0.2);
@@ -185,12 +186,13 @@
 
       .themeToggle {
         width: 100%;
-        padding: $spacing-md;
-        background-color: rgba($bg-tertiary, 0.5);
+        padding: $spacing-sm;
+        background-color: $bg-tertiary;
         border-radius: $border-radius-md;
         font-size: 1.2rem;
         justify-content: center;
-        margin-top: $spacing-md;
+        margin-top: $spacing-xs;
+        color: $text-primary;
       }
     }
   }
