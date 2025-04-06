@@ -1,6 +1,7 @@
 import React from 'react';
 import { projects as styles } from './styled';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import Data from '../Data.js';
 
 function Projects() {
@@ -45,33 +46,28 @@ function Projects() {
 
         <motion.div className={styles.projectsGrid} variants={containerVariants}>
           {Data.map((project) => (
-            <motion.a
+            <motion.div
               key={project.id}
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
               className={styles.projectCard}
               variants={itemVariants}
               whileHover={{ 
-                scale: 1.02,
+                y: -10,
                 transition: { duration: 0.2 }
               }}
             >
-              <div className={styles.imageContainer}>
-                <img src={project.img} alt={project.title} />
-              </div>
-              <div className={styles.content}>
-                <h3 className={styles.projectTitle}>{project.title}</h3>
-                <p className={styles.projectDescription}>{project.tag}</p>
-                <div className={styles.techStack}>
-                  {project.technologies?.map((tech, index) => (
-                    <span key={index} className={styles.techTag}>
-                      {tech}
-                    </span>
-                  ))}
+              <Link to={`/projects/${project.id}`} className={styles.projectLink}>
+                <div className={styles.imageContainer}>
+                  <img src={project.img} alt={project.title} />
+                  <div className={styles.overlay}>
+                    <span>View Details</span>
+                  </div>
                 </div>
-              </div>
-            </motion.a>
+                <div className={styles.content}>
+                  <h3 className={styles.projectTitle}>{project.title}</h3>
+                  <p className={styles.projectDescription}>{project.tag}</p>
+                </div>
+              </Link>
+            </motion.div>
           ))}
         </motion.div>
       </motion.div>

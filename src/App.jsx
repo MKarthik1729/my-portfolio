@@ -1,33 +1,61 @@
 // import { useState } from 'react'
-import { useEffect } from 'react';
-import {Navbar,Home, Projects,Skills} from './Components'
-import Contact from './Components/Contact'
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from './Context/ThemeContext';
+import { Navbar, Home, Projects, Skills, SkillPage, Contact, Resume, NotFound } from './Components';
+import ProjectDetail from './Components/Project/ProjectDetail';
+import './App.css';
 import TakeArttoHeart from './Components/Project/TakeArttoHeart';
-import SkillPage from './Components/Skill/SkillPage';
-import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
   return (
     <ThemeProvider>
-      <BrowserRouter>
+      <Router>
         <Routes>
-          <Route path='/' exact element={<div>
-            <Navbar />
-            <Home  />
-            <Skills />
-            <Projects  />
-            <Contact />
-          </div>}/>
-          <Route path='/art' element={<TakeArttoHeart />}/>
-          <Route path='/skills' element={<div>
-            <Navbar />
-            <SkillPage />
-          </div>}/>
+          <Route path="/" element={
+            <>
+              <Navbar />
+              <Home />
+              <Projects />
+              <Skills />
+            </>
+          } />
+          <Route path="/skills" element={
+            <>
+              <Navbar />
+              <SkillPage />
+            </>
+          } />
+          <Route path="/projects" element={
+            <>
+              <Navbar />
+              <Projects />
+            </>
+          } />
+          <Route path="/projects/:id" element={
+            <>
+              <Navbar />
+              <ProjectDetail />
+            </>
+          } />
+          <Route path="/contact" element={
+            <>
+              <Navbar />
+              <Contact />
+            </>
+          } />
+          <Route path="/resume" element={
+            <>
+              <Navbar />
+              <Resume />
+            </>
+          } />
+          <Route path="/art" element={<TakeArttoHeart />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
+      </Router>
     </ThemeProvider>
-  )
+  );
 }
 
-export default App
+export default App;

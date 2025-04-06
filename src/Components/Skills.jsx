@@ -39,7 +39,7 @@ function Skills() {
   };
 
   return (
-    <section id="skills" className={styles.skills}>
+    <section id="skills" className={styles.skills} style={{ marginTop: '-2rem' }}>
       <motion.div 
         className={styles.container}
         initial="hidden"
