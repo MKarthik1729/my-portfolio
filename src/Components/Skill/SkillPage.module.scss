@@ -30,6 +30,7 @@
   font-weight: 700;
   margin: 0;
   background: $gradient-primary;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
