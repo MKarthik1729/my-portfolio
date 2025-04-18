@@ -46,6 +46,23 @@ function Home() {
     }
   };
 
+  const greetingVariants = {
+    hidden: { 
+      opacity: 0,
+      scale: 0.8
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        type: "spring",
+        stiffness: 120,
+        damping: 12,
+        mass: 0.8
+      }
+    }
+  };
+
   const nameVariants = {
     hidden: { 
       y: 50,
@@ -112,7 +129,7 @@ function Home() {
       <div className={styles.honeycombPattern} />
       <div className={styles.content}>
         <motion.div className={styles.textContent} variants={containerVariants}>
-          <motion.h1 variants={textVariants} className={styles.greeting}>
+          <motion.h1 variants={greetingVariants} className={styles.greeting}>
             Hello, I'm
           </motion.h1>
           <motion.h2 variants={nameVariants} className={styles.name}>

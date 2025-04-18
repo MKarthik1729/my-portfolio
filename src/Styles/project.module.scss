@@ -11,6 +11,10 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
+
+    @media (max-width: $breakpoint-md) {
+      padding: 0;
+    }
   }
 
   .title {
@@ -35,6 +39,8 @@
 
     @media (max-width: $breakpoint-md) {
       grid-template-columns: 1fr;
+      gap: 1rem;
+      padding: 0;
     }
   }
 
@@ -44,6 +50,10 @@
     overflow: hidden;
     box-shadow: 0 8px 16px var(--card-hover-shadow);
     transition: all 0.3s ease;
+
+    @media (max-width: $breakpoint-md) {
+      border-radius: 0;
+    }
 
     &:hover {
       transform: translateY(-10px);
@@ -72,6 +82,13 @@
   overflow: hidden;
   position: relative;
   
+  @media (max-width: $breakpoint-md) {
+    width: 90%;
+    margin: 0 auto;
+    height: auto;
+    aspect-ratio: 16/9;
+  }
+  
   &::after {
     content: '';
     position: absolute;
@@ -86,6 +103,10 @@
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
+
+    @media (max-width: $breakpoint-md) {
+      object-fit: contain;
+    }
   }
 }
 

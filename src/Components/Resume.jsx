@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
 import styles from '../Styles/resume.module.scss';
@@ -6,31 +6,28 @@ import styles from '../Styles/resume.module.scss';
 const Resume = () => {
   const { isDarkMode } = useTheme();
 
-  useEffect(() => {
-    // Update PDF viewer background based on theme
-    const pdfViewer = document.querySelector(`.${styles.pdfViewer}`);
-    if (pdfViewer) {
-      pdfViewer.style.backgroundColor = isDarkMode ? 'var(--bg-secondary)' : 'var(--bg-secondary)';
-    }
-  }, [isDarkMode]);
-
   return (
     <motion.div 
       className={styles.resume}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
+      style={{ backgroundColor: '#ffffff' }}
     >
-      <div className={styles.pdfContainer}>
+      <div 
+        className={styles.pdfContainer}
+        style={{ backgroundColor: '#ffffff' }}
+      >
         <iframe
-          src="/Karthik_resume_2.6.pdf"
+          src={`/Karthik_resume_2.6.pdf#toolbar=0&view=FitH`}
           width="100%"
           height="100%"
           title="Resume PDF"
           className={styles.pdfViewer}
           style={{
-            backgroundColor: isDarkMode ? 'var(--bg-secondary)' : 'var(--bg-secondary)',
-            border: 'none'
+            backgroundColor: '#ffffff',
+            border: 'none',
+            display: 'block'
           }}
         />
       </div>
