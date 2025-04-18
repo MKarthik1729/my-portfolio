@@ -89,6 +89,11 @@
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: $spacing-lg;
   width: 100%;
+
+  @media screen and (max-width: $breakpoint-md) {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: $spacing-md;
+  }
 }
 
 .skillCard {
@@ -103,6 +108,10 @@
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+
+  @media screen and (max-width: $breakpoint-md) {
+    padding: $spacing-md;
+  }
 
   &:hover {
     transform: translateY(-5px);
@@ -126,6 +135,11 @@
   margin-bottom: $spacing-md;
   color: var(--primary);
   transition: all 0.3s ease;
+
+  @media screen and (max-width: $breakpoint-md) {
+    font-size: 2.5rem;
+    margin-bottom: $spacing-sm;
+  }
 }
 
 .skillName {
@@ -134,6 +148,10 @@
   margin: 0 0 $spacing-xs;
   color: var(--text-primary);
   transition: color 0.3s ease;
+
+  @media screen and (max-width: $breakpoint-md) {
+    font-size: 1.2rem;
+  }
 }
 
 .category {
@@ -167,4 +185,8 @@
   color: var(--text-secondary);
   margin: 0;
   line-height: 1.5;
+
+  @media screen and (max-width: $breakpoint-md) {
+    font-size: 0.8rem;
+  }
 } 

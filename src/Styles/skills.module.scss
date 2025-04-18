@@ -22,7 +22,8 @@
   gap: $spacing-xl;
 
   @media screen and (max-width: $breakpoint-md) {
-    padding: $spacing-md;
+    padding: $spacing-sm;
+    gap: 0;
   }
 }
 
@@ -50,6 +51,8 @@
 
   @media screen and (max-width: $breakpoint-md) {
     font-size: 1.2rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
 }
 
@@ -58,6 +61,12 @@
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: $spacing-lg;
   width: 100%;
+
+  @media screen and (max-width: $breakpoint-md) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-sm;
+    margin-top: 0;
+  }
 }
 
 .skillCard {

@@ -6,7 +6,7 @@ export { default as SkillPage } from './Skill/SkillPage';
 export { default as Contact } from './Contact';
 export { default as Resume } from './Resume';
 export { default as NotFound } from './NotFound';
-export { default as TakeArtToHeart } from './Project/TakeArtToHeart/TakeArttoHeart';
+export { default as TakeArtToHeart } from './Project/TakeArtToHeart/Take_Art_to_Heart';
 export { default as ECommercePlatform } from './Project/ECommercePlatform/ECommercePlatform';
 export { default as TaskManagementApp } from './Project/TaskManagementApp/TaskManagementApp';
 export { default as WeatherDashboard } from './Project/WeatherDashboard/WeatherDashboard';
