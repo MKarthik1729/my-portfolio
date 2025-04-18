@@ -3,8 +3,10 @@ import { skills as styles } from './styled';
 import { motion } from 'framer-motion';
 import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNode, FaPython, FaJava, FaArrowRight } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { useTheme } from '../context/ThemeContext';
 
 function Skills() {
+  const { isDarkMode } = useTheme();
   const skills = [
     { icon: <FaPython />, name: "Python", category: "Language" },
     { icon: <FaHtml5 />, name: "HTML", category: "Frontend" },

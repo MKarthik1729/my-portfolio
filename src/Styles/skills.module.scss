@@ -2,12 +2,13 @@
 
 .skills {
   min-height: 100vh;
-  background-color: $bg-primary;
-  color: $text-primary;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   padding: 120px 0 60px;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -29,7 +30,7 @@
   font-size: 3rem;
   font-weight: 700;
   margin: 0;
-  background: $gradient-primary;
+  background: var(--gradient-primary);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -42,7 +43,7 @@
 
 .subtitle {
   font-size: 1.5rem;
-  color: $text-secondary;
+  color: var(--text-secondary);
   margin: 0;
   text-align: center;
   max-width: 600px;
@@ -60,31 +61,31 @@
 }
 
 .skillCard {
-  background: $card-bg;
-  border: 1px solid $card-border;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: $border-radius-md;
   padding: $spacing-lg;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  transition: all $transition-normal;
+  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
 
   &:hover {
     transform: translateY(-5px);
-    border-color: $primary;
-    box-shadow: 0 10px 20px $card-hover-shadow;
-    background: $card-hover-bg;
+    border-color: var(--primary);
+    box-shadow: 0 10px 20px var(--card-hover-shadow);
+    background: var(--card-hover-bg);
 
     .iconWrapper {
       transform: scale(1.1);
-      color: $primary-light;
+      color: var(--primary-light);
     }
 
     .skillName {
-      color: $primary-light;
+      color: var(--primary-light);
     }
   }
 }
@@ -92,22 +93,22 @@
 .iconWrapper {
   font-size: 3rem;
   margin-bottom: $spacing-md;
-  color: $primary;
-  transition: all $transition-normal;
+  color: var(--primary);
+  transition: all 0.3s ease;
 }
 
 .skillName {
   font-size: 1.5rem;
   font-weight: 600;
   margin: 0 0 $spacing-xs;
-  color: $text-primary;
-  transition: color $transition-normal;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
 }
 
 .category {
   display: inline-block;
-  background: rgba($primary, 0.1);
-  color: $primary;
+  background: rgba(var(--primary), 0.1);
+  color: var(--primary);
   padding: $spacing-xs $spacing-sm;
   border-radius: $border-radius-full;
   font-size: 0.8rem;

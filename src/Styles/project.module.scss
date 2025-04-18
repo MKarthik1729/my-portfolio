@@ -2,87 +2,66 @@
 
 .projects {
   min-height: 100vh;
-  background: $gradient-dark;
-  padding: $spacing-xl 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  @media screen and (max-width: $breakpoint-md) {
-    padding: $spacing-lg 0;
-    margin-top: 12vh;
+  padding: 2rem;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
   }
-}
 
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 $spacing-xl;
-}
-
-.title {
-  font-size: 3rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: $spacing-sm;
-  background: $gradient-primary;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  
-  @media screen and (max-width: $breakpoint-md) {
+  .title {
     font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--accent);
+    text-align: center;
   }
-}
 
-.subtitle {
-  text-align: center;
-  color: $text-secondary;
-  font-size: 1.2rem;
-  margin-bottom: $spacing-xl;
-  opacity: 0.8;
-}
-
-.projectsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: $spacing-xl;
-  padding: $spacing-md 0;
-  
-  @media screen and (max-width: $breakpoint-md) {
-    grid-template-columns: 1fr;
-    gap: $spacing-lg;
-    padding: $spacing-sm 0;
+  .subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    color: var(--text-secondary);
+    text-align: center;
   }
-}
 
-.projectCard {
-  background: $card-bg;
-  backdrop-filter: blur(10px);
-  border-radius: $border-radius-lg;
-  overflow: hidden;
-  text-decoration: none;
-  border: 1px solid $card-border;
-  transition: all $transition-normal;
+  .projectsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
 
-  &:hover {
-    transform: translateY(-5px);
-    border-color: $primary;
-    box-shadow: 0 10px 20px $card-hover-shadow;
-    background: $card-hover-bg;
-    
-    .imageContainer img {
-      transform: scale(1.1);
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .projectCard {
+    background-color: var(--bg-secondary);
+    border-radius: $border-radius-lg;
+    overflow: hidden;
+    box-shadow: 0 8px 16px var(--card-hover-shadow);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 24px var(--card-hover-shadow);
+
+      .overlay {
+        opacity: 1;
+      }
+
+      .imageContainer img {
+        transform: scale(1.1);
+      }
     }
 
-    .projectTitle {
-      color: $primary-light;
-    }
-
-    .techTag {
-      background: rgba($primary, 0.2);
-      color: $primary-light;
+    .projectLink {
+      text-decoration: none;
+      color: inherit;
+      display: block;
     }
   }
 }
@@ -97,7 +76,8 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, transparent 0%, rgba($bg-primary, 0.1) 100%);
+    background: linear-gradient(to bottom, transparent 0%, var(--bg-primary) 100%);
+    opacity: 0.1;
     pointer-events: none;
   }
   
@@ -105,7 +85,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform $transition-normal;
+    transition: transform 0.3s ease;
   }
 }
 
@@ -116,13 +96,13 @@
 .projectTitle {
   font-size: 1.5rem;
   font-weight: 600;
-  color: $text-primary;
+  color: var(--text-primary);
   margin-bottom: $spacing-sm;
-  transition: color $transition-normal;
+  transition: color 0.3s ease;
 }
 
 .projectDescription {
-  color: $text-secondary;
+  color: var(--text-secondary);
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: $spacing-md;
@@ -136,10 +116,15 @@
 
 .techTag {
   font-size: 0.9rem;
-  color: $text-tertiary;
+  color: var(--text-tertiary);
   padding: $spacing-xs $spacing-sm;
-  background: rgba($primary, 0.1);
+  background: rgba(var(--primary), 0.1);
   border-radius: $border-radius-full;
-  transition: all $transition-normal;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(var(--primary), 0.2);
+    color: var(--primary-light);
+  }
 }
   

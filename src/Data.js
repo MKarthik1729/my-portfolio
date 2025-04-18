@@ -7,7 +7,8 @@ const Data = [
         "title": "Take Art to Heart",
         "tag": "MERN stack",
         "link": "https://frontend-wbd.onrender.com/",
-        "technologies": ["React", "Node.js", "Express", "MongoDB", "Redux"]
+        "technologies": ["React", "Node.js", "Express", "MongoDB", "Redux"],
+        "dedicatedRoute": "take-art-to-heart"
     },
     {
         "id": 2,
@@ -15,7 +16,8 @@ const Data = [
         "title": "Library System",  
         "tag": "Java and MySQL",
         "link": "#skills",
-        "technologies": ["Java", "MySQL", "Swing", "JDBC"]
+        "technologies": ["Java", "MySQL", "Swing", "JDBC"],
+        "dedicatedRoute": "task-management-app"
     },
     {
         "id": 3,
@@ -23,7 +25,8 @@ const Data = [
         "title": "Portfolio",
         "tag": "React Bootstrap framer-motion",
         "link": "/",
-        "technologies": ["React", "SCSS", "Framer Motion", "React Router"]
+        "technologies": ["React", "SCSS", "Framer Motion", "React Router"],
+        "dedicatedRoute": "portfolio-website"
     },
     {
         "id": 4,
@@ -31,7 +34,8 @@ const Data = [
         "title": "Bluetooth Vehicle",
         "tag": "IOT and Aurdino",
         "link": "#skills",
-        "technologies": ["Arduino", "C++", "Bluetooth", "IoT"]
+        "technologies": ["Arduino", "C++", "Bluetooth", "IoT"],
+        "dedicatedRoute": "weather-dashboard"
     },
     {
         "id": 5,
@@ -39,7 +43,8 @@ const Data = [
         "title": "Automated Web Scrapper",
         "tag": "Python Selenium",
         "link": "https://github.com/MKarthik1729/automatedWebScrapper",
-        "technologies": ["Python", "Selenium", "Web Scraping", "Automation"]
+        "technologies": ["Python", "Selenium", "Web Scraping", "Automation"],
+        "dedicatedRoute": "social-media-dashboard"
     },
     {
         "id": 6,
@@ -47,7 +52,8 @@ const Data = [
         "title": "Sri Velu Enterprises",
         "tag": "React Framer-motion Bootstrap",
         "link": "https://sriveluenterprises.vercel.app/",
-        "technologies": ["React", "Bootstrap", "Framer Motion", "Responsive Design"]
+        "technologies": ["React", "Bootstrap", "Framer Motion", "Responsive Design"],
+        "dedicatedRoute": "fitness-tracking-app"
     }
 ]
 
