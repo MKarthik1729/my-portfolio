@@ -1,15 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaNode, FaPython, FaJava, FaBootstrap } from "react-icons/fa";
 import { GrMysql } from "react-icons/gr";
 import { SiMongodb, SiMui, SiPostgresql, SiReact } from "react-icons/si";
 import { TbBrandFramerMotion } from "react-icons/tb";
 import { useTheme } from '../../context/ThemeContext';
+import useMoveToTop from '../Hooks/MoveToTop';
 import styles from './SkillPage.module.scss';
 
 function SkillPage() {
   const { isDarkMode } = useTheme();
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const moveToTop = useMoveToTop();
+  
+  useEffect(() => {
+    moveToTop();
+  }, [moveToTop]);
   
   const skills = [
     { icon: <FaPython />, name: "Python", category: "Language", proficiency: 85, description: "Used for data analysis, automation, and backend development" },

@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
+import useMoveToTop from './Hooks/MoveToTop';
 import styles from '../Styles/contact.module.scss';
 
 function Contact() {
@@ -10,6 +11,11 @@ function Contact() {
     subject: '',
     message: ''
   });
+  const moveToTop = useMoveToTop();
+
+  useEffect(() => {
+    moveToTop();
+  }, [moveToTop]);
 
   const [status, setStatus] = useState({
     type: '',
