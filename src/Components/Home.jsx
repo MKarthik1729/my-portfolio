@@ -2,13 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { useTheme } from '../context/ThemeContext';
+import useMoveToTop from './Hooks/MoveToTop';
 import styles from '../Styles/home.module.scss';
 
 function Home() {
   const [hasVisited, setHasVisited] = useState(false);
   const { isDarkMode } = useTheme();
+  const moveToTop = useMoveToTop();
 
   useEffect(() => {
+    moveToTop();
     const visited = localStorage.getItem('hasVisitedHome');
     if (!visited) {
       setHasVisited(true);

@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { projects as styles } from './styled';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import useMoveToTop from './Hooks/MoveToTop';
 import Data from '../Data.js';
 
 function Projects() {
+  const moveToTop = useMoveToTop();
+
+  useEffect(() => {
+    moveToTop();
+  }, [moveToTop]);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {

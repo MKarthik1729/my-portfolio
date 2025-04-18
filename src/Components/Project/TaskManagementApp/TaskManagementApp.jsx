@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import useMoveToTop from '../../Hooks/MoveToTop';
 import './TaskManagementApp.scss';
 
 const TaskManagementApp = () => {
+  const moveToTop = useMoveToTop();
+
+  useEffect(() => {
+    moveToTop();
+  }, [moveToTop]);
+
   return (
     <motion.div 
       className="project-page"

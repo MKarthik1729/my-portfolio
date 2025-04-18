@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
+import useMoveToTop from './Hooks/MoveToTop';
 import styles from '../Styles/resume.module.scss';
 
 const Resume = () => {
   const { isDarkMode } = useTheme();
+  const moveToTop = useMoveToTop();
+
+  useEffect(() => {
+    moveToTop();
+  }, [moveToTop]);
 
   return (
     <motion.div 
