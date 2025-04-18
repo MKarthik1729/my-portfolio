@@ -1,12 +1,12 @@
 :root {
   /* Default theme (dark) */
-  --primary: #2563eb;
-  --primary-dark: #1d4ed8;
+  --primary: #3b82f6;
+  --primary-dark: #2563eb;
   --primary-light: #60a5fa;
   
-  --secondary: #64748b;
-  --secondary-dark: #475569;
-  --secondary-light: #94a3b8;
+  --secondary: #94a3b8;
+  --secondary-dark: #64748b;
+  --secondary-light: #cbd5e1;
   
   --accent: #f59e0b;
   --accent-dark: #d97706;
@@ -18,11 +18,16 @@
   
   --card-bg: rgba(30, 41, 59, 0.7);
   --card-border: rgba(255, 255, 255, 0.1);
-  --card-hover-shadow: rgba(37, 99, 235, 0.3);
+  --card-hover-shadow: rgba(59, 130, 246, 0.3);
+  --card-hover-bg: rgba(30, 41, 59, 0.95);
   
   --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-tertiary: #94a3b8;
+  --text-secondary: #e2e8f0;
+  --text-tertiary: #cbd5e1;
+
+  --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  --gradient-accent: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  --gradient-dark: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
 }
 
 [data-theme="light"] {
@@ -45,10 +50,15 @@
   --card-bg: #ffffff;
   --card-border: rgba(0, 0, 0, 0.1);
   --card-hover-shadow: rgba(0, 0, 0, 0.1);
+  --card-hover-bg: #f8fafc;
   
   --text-primary: #1e293b;
   --text-secondary: #475569;
   --text-tertiary: #64748b;
+
+  --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  --gradient-accent: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  --gradient-dark: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
 }
 
 * {
@@ -61,8 +71,9 @@
   /* overflow: contain; */
 }
 
-a{
+a {
   text-decoration: none;
+  color: var(--text-primary);
 }
 
 body {

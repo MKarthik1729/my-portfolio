@@ -28,6 +28,13 @@ function Projects() {
     }
   };
 
+  const getProjectLink = (project) => {
+    if (project.dedicatedRoute) {
+      return `/projects/${project.dedicatedRoute}`;
+    }
+    return `/projects/${project.id}`;
+  };
+
   return (
     <section id="projects" className={styles.projects}>
       <motion.div 
@@ -55,7 +62,7 @@ function Projects() {
                 transition: { duration: 0.2 }
               }}
             >
-              <Link to={`/projects/${project.id}`} className={styles.projectLink}>
+              <Link to={getProjectLink(project)} className={styles.projectLink}>
                 <div className={styles.imageContainer}>
                   <img src={project.img} alt={project.title} />
                   <div className={styles.overlay}>

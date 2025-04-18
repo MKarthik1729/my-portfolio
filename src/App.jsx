@@ -2,10 +2,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
-import { Navbar, Home, Projects, Skills, SkillPage, Contact, Resume, NotFound } from './Components';
-import ProjectDetail from './Components/Project/ProjectDetail';
+import { Navbar, Home, Projects, Skills, SkillPage, Contact, Resume, NotFound, TakeArtToHeart, TaskManagementApp, ECommercePlatform, WeatherDashboard, PortfolioWebsite, SocialMediaDashboard, FitnessTrackingApp } from './Components';
 import './App.css';
-import TakeArttoHeart from './Components/Project/TakeArttoHeart';
 
 function App() {
   return (
@@ -32,10 +30,46 @@ function App() {
               <Projects />
             </>
           } />
-          <Route path="/projects/:id" element={
+          <Route path="/projects/e-commerce-platform" element={
             <>
               <Navbar />
-              <ProjectDetail />
+              <ECommercePlatform />
+            </>
+          } />
+          <Route path="/projects/task-management-app" element={
+            <>
+              <Navbar />
+              <TaskManagementApp />
+            </>
+          } />
+          <Route path="/projects/weather-dashboard" element={
+            <>
+              <Navbar />
+              <WeatherDashboard />
+            </>
+          } />
+          <Route path="/projects/portfolio-website" element={
+            <>
+              <Navbar />
+              <PortfolioWebsite />
+            </>
+          } />
+          <Route path="/projects/social-media-dashboard" element={
+            <>
+              <Navbar />
+              <SocialMediaDashboard />
+            </>
+          } />
+          <Route path="/projects/fitness-tracking-app" element={
+            <>
+              <Navbar />
+              <FitnessTrackingApp />
+            </>
+          } />
+          <Route path="/projects/take-art-to-heart" element={
+            <>
+              <Navbar />
+              <TakeArtToHeart />
             </>
           } />
           <Route path="/contact" element={
@@ -50,7 +84,6 @@ function App() {
               <Resume />
             </>
           } />
-          <Route path="/art" element={<TakeArttoHeart />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>

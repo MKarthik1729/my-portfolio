@@ -6,12 +6,13 @@
   left: 0;
   right: 0;
   z-index: $z-fixed;
-  background-color: $bg-secondary;
-  color: $text-primary;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
   padding: 0;
-  box-shadow: $shadow-md;
+  box-shadow: var(--card-hover-shadow);
   backdrop-filter: blur(8px);
-  background-color: rgba($bg-secondary, 0.8);
+  background-color: rgba(var(--bg-secondary), 0.8);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .navContent {
@@ -25,14 +26,14 @@
 }
 
 .logo {
-  color: $text-primary;
+  color: var(--text-primary);
   font-size: 1.5rem;
   font-weight: bold;
   text-decoration: none;
-  transition: color $transition-normal;
+  transition: color 0.3s ease;
 
   &:hover {
-    color: $primary-light;
+    color: var(--primary-light);
   }
 }
 
@@ -45,19 +46,19 @@
 .themeToggle {
   background: none;
   border: none;
-  color: $text-primary;
+  color: var(--text-primary);
   font-size: 1.2rem;
   cursor: pointer;
   padding: $spacing-sm;
   border-radius: $border-radius-full;
-  transition: all $transition-normal;
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
 
   &:hover {
-    color: $primary-light;
-    background: rgba($primary, 0.1);
+    color: var(--primary-light);
+    background: rgba(var(--primary), 0.1);
   }
 }
 
@@ -65,12 +66,12 @@
   display: none;
   background: none;
   border: none;
-  color: $text-primary;
+  color: var(--text-primary);
   font-size: 1.8rem;
   cursor: pointer;
   padding: $spacing-sm;
-  transition: color $transition-normal;
-  background-color: rgba($bg-secondary, 0.8);
+  transition: all 0.3s ease;
+  background-color: rgba(var(--bg-secondary), 0.8);
   border-radius: $border-radius-full;
   width: 48px;
   height: 48px;
@@ -78,8 +79,8 @@
   justify-content: center;
 
   &:hover {
-    color: $primary-light;
-    background-color: rgba($primary, 0.2);
+    color: var(--primary-light);
+    background-color: rgba(var(--primary), 0.2);
   }
 
   @media screen and (max-width: $breakpoint-md) {
@@ -100,11 +101,11 @@
     position: relative;
     
     a {
-      color: $text-primary;
+      color: var(--text-primary);
       text-decoration: none;
       font-size: 1.1rem;
       padding: $spacing-sm;
-      transition: color $transition-normal;
+      transition: color 0.3s ease;
 
       &::before {
         content: '';
@@ -113,12 +114,12 @@
         height: 2px;
         bottom: 0;
         left: 0;
-        background-color: $primary;
-        transition: width $transition-normal;
+        background-color: var(--primary);
+        transition: width 0.3s ease;
       }
 
       &:hover {
-        color: $primary-light;
+        color: var(--primary-light);
         
         &::before {
           width: 100%;
@@ -128,11 +129,11 @@
   }
 
   .active {
-    color: $primary-light;
+    color: var(--primary-light);
     
     &::before {
       width: 100%;
-      background-color: $primary;
+      background-color: var(--primary);
     }
   }
 
@@ -142,11 +143,11 @@
     left: 0;
     right: 0;
     flex-direction: column;
-    background-color: $bg-secondary;
+    background-color: var(--bg-secondary);
     padding: $spacing-md;
     width: 100%;
     gap: $spacing-xs;
-    box-shadow: $shadow-md;
+    box-shadow: var(--card-hover-shadow);
     z-index: $z-fixed;
     backdrop-filter: blur(8px);
     max-height: calc(100vh - 12vh);
@@ -161,7 +162,7 @@
     li {
       width: 100%;
       text-align: center;
-      background-color: $bg-tertiary;
+      background-color: var(--bg-tertiary);
       border-radius: $border-radius-md;
       margin-bottom: $spacing-xs;
       
@@ -170,15 +171,15 @@
         padding: $spacing-sm;
         font-size: 1.2rem;
         font-weight: 500;
-        color: $text-primary;
+        color: var(--text-primary);
         
         &::before {
           bottom: 0;
         }
         
         &.active {
-          color: $primary-light;
-          background-color: rgba($primary, 0.2);
+          color: var(--primary-light);
+          background-color: rgba(var(--primary), 0.2);
           border-radius: $border-radius-md;
           font-weight: 600;
         }
@@ -187,12 +188,12 @@
       .themeToggle {
         width: 100%;
         padding: $spacing-sm;
-        background-color: $bg-tertiary;
+        background-color: var(--bg-tertiary);
         border-radius: $border-radius-md;
         font-size: 1.2rem;
         justify-content: center;
         margin-top: $spacing-xs;
-        color: $text-primary;
+        color: var(--text-primary);
       }
     }
   }

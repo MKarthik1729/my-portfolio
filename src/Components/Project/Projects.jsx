@@ -14,7 +14,8 @@ const projectsData = [
     githubLink: "https://github.com/username/ecommerce",
     liveLink: "https://ecommerce-demo.com",
     image: "https://via.placeholder.com/800x450?text=E-Commerce+Platform",
-    category: "Full Stack"
+    category: "Full Stack",
+    route: "e-commerce-platform"
   },
   {
     id: 2,
@@ -24,7 +25,8 @@ const projectsData = [
     githubLink: "https://github.com/username/taskmanager",
     liveLink: "https://taskmanager-demo.com",
     image: "https://via.placeholder.com/800x450?text=Task+Management",
-    category: "Web App"
+    category: "Web App",
+    route: "task-management-app"
   },
   {
     id: 3,
@@ -34,7 +36,8 @@ const projectsData = [
     githubLink: "https://github.com/username/weather-dashboard",
     liveLink: "https://weather-dashboard-demo.com",
     image: "https://via.placeholder.com/800x450?text=Weather+Dashboard",
-    category: "Data Visualization"
+    category: "Data Visualization",
+    route: "weather-dashboard"
   },
   {
     id: 4,
@@ -44,7 +47,8 @@ const projectsData = [
     githubLink: "https://github.com/username/portfolio",
     liveLink: "https://portfolio-demo.com",
     image: "https://via.placeholder.com/800x450?text=Portfolio",
-    category: "Web Design"
+    category: "Web Design",
+    route: "portfolio-website"
   },
   {
     id: 5,
@@ -54,7 +58,8 @@ const projectsData = [
     githubLink: "https://github.com/username/social-dashboard",
     liveLink: "https://social-dashboard-demo.com",
     image: "https://via.placeholder.com/800x450?text=Social+Dashboard",
-    category: "Full Stack"
+    category: "Full Stack",
+    route: "social-media-dashboard"
   },
   {
     id: 6,
@@ -64,7 +69,8 @@ const projectsData = [
     githubLink: "https://github.com/username/fitness-app",
     liveLink: "https://fitness-app-demo.com",
     image: "https://via.placeholder.com/800x450?text=Fitness+App",
-    category: "Mobile"
+    category: "Mobile",
+    route: "fitness-tracking-app"
   }
 ];
 
@@ -153,7 +159,7 @@ function Projects() {
                   ))}
                 </div>
                 <div className={styles.links}>
-                  <Link to={`/projects/${project.id}`} className={styles.viewDetails}>
+                  <Link to={`/projects/${project.route}`} className={styles.viewDetails}>
                     View Details
                   </Link>
                   <a 

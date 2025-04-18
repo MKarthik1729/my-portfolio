@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { useTheme } from '../context/ThemeContext';
 import styles from '../Styles/home.module.scss';
 
 function Home() {
   const [hasVisited, setHasVisited] = useState(false);
+  const { isDarkMode } = useTheme();
 
   useEffect(() => {
     const visited = localStorage.getItem('hasVisitedHome');
@@ -102,6 +104,10 @@ function Home() {
       initial={hasVisited ? "visible" : "hidden"}
       animate="visible"
       variants={containerVariants}
+      style={{
+        backgroundColor: isDarkMode ? 'var(--bg-primary)' : 'var(--bg-primary)',
+        color: isDarkMode ? 'var(--text-primary)' : 'var(--text-primary)'
+      }}
     >
       <div className={styles.honeycombPattern} />
       <div className={styles.content}>
@@ -134,6 +140,9 @@ function Home() {
                 transition: { duration: 0.2 }
               }}
               whileTap={{ scale: 0.9 }}
+              style={{
+                color: isDarkMode ? 'var(--text-primary)' : 'var(--text-primary)'
+              }}
             >
               <FaGithub />
             </motion.a>
@@ -148,6 +157,9 @@ function Home() {
                 transition: { duration: 0.2 }
               }}
               whileTap={{ scale: 0.9 }}
+              style={{
+                color: isDarkMode ? 'var(--text-primary)' : 'var(--text-primary)'
+              }}
             >
               <FaLinkedin />
             </motion.a>
