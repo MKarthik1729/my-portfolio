@@ -27,7 +27,7 @@ function Navbar() {
 
   const navItems = [
     { path: '/', label: 'Home' },
-    { path: '/skills', label: 'Skills' },
+    // { path: '/skills', label: 'Skills' },
     { path: '/projects', label: 'Projects' },
     { path: '/contact', label: 'Contact' },
     { path: '/resume', label: 'Resume' },
