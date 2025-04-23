@@ -3,6 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import { Navbar, Home, Projects, Skills, SkillPage, Contact, Resume, NotFound, TakeArtToHeart, TaskManagementApp, ECommercePlatform, WeatherDashboard, PortfolioWebsite, SocialMediaDashboard, FitnessTrackingApp } from './Components';
+import SkillStyleChange from './SkillStyleChange';
 import './App.css';
 
 function App() {
@@ -14,16 +15,17 @@ function App() {
             <>
               <Navbar />
               <Home />
+              <SkillStyleChange />
               <Projects />
-              <Skills />
+              {/* <Skills /> */}
             </>
           } />
-          <Route path="/skills" element={
+          {/* <Route path="/skills" element={
             <>
               <Navbar />
               <SkillPage />
             </>
-          } />
+          } /> */}
           <Route path="/projects" element={
             <>
               <Navbar />

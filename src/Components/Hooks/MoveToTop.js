@@ -12,3 +12,4 @@ const useMoveToTop = () => {
 };
 
 export default useMoveToTop;
+

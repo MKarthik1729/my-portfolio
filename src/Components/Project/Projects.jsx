@@ -98,27 +98,31 @@ function Projects() {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.5
+        type: "spring",
+        stiffness: 100,
+        damping: 10
       }
     }
   };
 
   return (
-    <div className={styles.projects}>
-      <div className={styles.container}>
-        <motion.h1 
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
+    <section className={styles.projects}>
+      <motion.div 
+        className={styles.container}
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+      >
+        <motion.h1 variants={itemVariants} className={styles.title}>
           My Projects
         </motion.h1>
+        <motion.p variants={itemVariants} className={styles.subtitle}>
+          A collection of my recent work
+        </motion.p>
 
         <motion.div 
           className={styles.filterButtons}
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          variants={itemVariants}
         >
           {categories.map(category => (
             <button
@@ -134,57 +138,61 @@ function Projects() {
         <motion.div 
           className={styles.projectsGrid}
           variants={containerVariants}
-          initial="hidden"
-          animate="visible"
         >
           {filteredProjects.map(project => (
-            <motion.div 
+            <motion.div
               key={project.id}
               className={styles.projectCard}
               variants={itemVariants}
               whileHover={{ 
-                y: -10,
-                transition: { duration: 0.2 }
+                scale: 1.02,
+                transition: { 
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 10
+                }
               }}
             >
-              <div className={styles.imageContainer}>
-                <img src={project.image} alt={project.title} />
-              </div>
-              <div className={styles.content}>
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-                <div className={styles.technologies}>
-                  {project.technologies.map((tech, index) => (
-                    <span key={index} className={styles.techTag}>{tech}</span>
-                  ))}
+              <Link to={`/projects/${project.route}`} className={styles.projectLink}>
+                <div className={styles.imageContainer}>
+                  <img src={project.image} alt={project.title} />
+                  <div className={styles.overlay}>
+                    <span>View Details</span>
+                  </div>
                 </div>
-                <div className={styles.links}>
-                  <Link to={`/projects/${project.route}`} className={styles.viewDetails}>
-                    View Details
-                  </Link>
-                  <a 
-                    href={project.githubLink} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className={styles.githubLink}
-                  >
-                    <FaGithub /> GitHub
-                  </a>
-                  <a 
-                    href={project.liveLink} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className={styles.liveLink}
-                  >
-                    <FaExternalLinkAlt /> Live Demo
-                  </a>
+                <div className={styles.content}>
+                  <h3 className={styles.projectTitle}>{project.title}</h3>
+                  <p className={styles.projectDescription}>{project.description}</p>
+                  <div className={styles.technologies}>
+                    {project.technologies.map((tech, index) => (
+                      <span key={index} className={styles.techTag}>{tech}</span>
+                    ))}
+                  </div>
+                  <div className={styles.links}>
+                    <a 
+                      href={project.githubLink} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className={styles.githubLink}
+                    >
+                      <FaGithub /> GitHub
+                    </a>
+                    <a 
+                      href={project.liveLink} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className={styles.liveLink}
+                    >
+                      <FaExternalLinkAlt /> Live Demo
+                    </a>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </motion.div>
           ))}
         </motion.div>
-      </div>
-    </div>
+      </motion.div>
+    </section>
   );
 }
 

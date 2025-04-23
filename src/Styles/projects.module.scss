@@ -2,126 +2,253 @@
 
 .projects {
   min-height: 100vh;
-  padding: 2rem;
-  background-color: $bg-primary;
-  color: $text-primary;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  padding: 120px 0 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-xl;
+
+  @media screen and (max-width: $breakpoint-md) {
+    padding: $spacing-md;
   }
+}
 
-  .title {
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+  background: var(--gradient-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+
+  @media screen and (max-width: $breakpoint-md) {
     font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: $accent;
-    text-align: center;
   }
+}
 
-  .subtitle {
+.subtitle {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  margin: 0;
+  text-align: center;
+  max-width: 600px;
+
+  @media screen and (max-width: $breakpoint-md) {
     font-size: 1.2rem;
-    margin-bottom: 3rem;
-    color: $text-secondary;
-    text-align: center;
+  }
+}
+
+.filterButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+  margin: $spacing-lg 0;
+  justify-content: center;
+}
+
+.filterButton {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-primary);
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius-full;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+
+  &:hover {
+    background: rgba(var(--primary), 0.1);
+    color: var(--primary-light);
+    border-color: var(--primary);
   }
 
-  .projectsGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 1rem;
+  &.active {
+    background: var(--primary);
+    color: var(--text-primary);
+    border-color: var(--primary);
+  }
+}
 
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr;
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: $spacing-lg;
+  width: 100%;
+
+  @media screen and (max-width: $breakpoint-md) {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: $spacing-md;
+  }
+}
+
+.projectCard {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: $border-radius-md;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+
+  &:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: 0 10px 20px var(--card-hover-shadow);
+    background: var(--card-hover-bg);
+
+    .imageContainer img {
+      transform: scale(1.1);
+    }
+
+    .projectTitle {
+      color: var(--primary-light);
+    }
+
+    .techTag {
+      background: rgba(var(--primary), 0.2);
+      color: var(--primary-light);
+    }
+
+    .overlay {
+      opacity: 1;
+      
+      span {
+        transform: translateY(0);
+      }
     }
   }
+}
 
-  .projectCard {
-    background-color: $bg-secondary;
-    border-radius: $border-radius-lg;
-    overflow: hidden;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(var(--primary), 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    span {
+      color: var(--text-primary);
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: $spacing-sm $spacing-md;
+      border: 2px solid var(--text-primary);
+      border-radius: $border-radius-sm;
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+    }
+
+    &:hover span {
+      transform: translateY(0);
+    }
+  }
+}
+
+.content {
+  padding: $spacing-lg;
+  background: var(--card-bg);
+
+  @media screen and (max-width: $breakpoint-md) {
+    padding: $spacing-md;
+  }
+}
+
+.projectTitle {
+  font-size: 1.4rem;
+  margin-bottom: $spacing-sm;
+  color: var(--accent);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.projectDescription {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  margin-top: $spacing-md;
+}
+
+.techTag {
+  font-size: 0.8rem;
+  color: var(--primary);
+  padding: $spacing-xs $spacing-sm;
+  background: rgba(var(--primary), 0.1);
+  border-radius: $border-radius-full;
+  transition: all 0.3s ease;
+}
+
+.links {
+  display: flex;
+  gap: $spacing-sm;
+  margin-top: $spacing-md;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-xs;
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $border-radius-sm;
+    text-decoration: none;
     transition: all 0.3s ease;
+    font-size: 0.9rem;
 
-    &:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    &.githubLink {
+      background: rgba(var(--primary), 0.1);
+      color: var(--text-primary);
 
-      .overlay {
-        opacity: 1;
-      }
-
-      .imageContainer img {
-        transform: scale(1.1);
-      }
-    }
-
-    .projectLink {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-
-    .imageContainer {
-      position: relative;
-      width: 100%;
-      height: 220px;
-      overflow: hidden;
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.5s ease;
-      }
-
-      .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba($accent, 0.85);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-
-        span {
-          color: $text-secondary;
-          font-size: 1.1rem;
-          font-weight: 500;
-          padding: 0.8rem 1.5rem;
-          border: 2px solid $text-secondary;
-          border-radius: $border-radius-sm;
-          transform: translateY(20px);
-          transition: transform 0.3s ease;
-        }
-
-        &:hover span {
-          transform: translateY(0);
-        }
+      &:hover {
+        background: rgba(var(--primary), 0.2);
+        color: var(--primary-light);
+        transform: translateY(-2px);
       }
     }
 
-    .content {
-      padding: 1.5rem;
-      background: $bg-secondary;
+    &.liveLink {
+      background: var(--primary);
+      color: var(--text-primary);
 
-      .projectTitle {
-        font-size: 1.4rem;
-        margin-bottom: 0.5rem;
-        color: $accent;
-        font-weight: 600;
-      }
-
-      .projectDescription {
-        color: $text-secondary;
-        font-size: 0.95rem;
-        line-height: 1.5;
-        margin: 0;
+      &:hover {
+        background: rgba(var(--primary), 0.8);
+        transform: translateY(-2px);
       }
     }
   }
