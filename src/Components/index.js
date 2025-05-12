@@ -14,4 +14,5 @@ export { default as PortfolioWebsite } from './Project/PortfolioWebsite/Portfoli
 export { default as SocialMediaDashboard } from './Project/SocialMediaDashboard/SocialMediaDashboard';
 export { default as FitnessTrackingApp } from './Project/FitnessTrackingApp/FitnessTrackingApp';
 export { default as ProjectDetail } from './Project/ProjectDetail';
+export { default as Experience } from './Experience';
 // export { default as Footer } from './Footer';
