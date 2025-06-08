@@ -86,7 +86,8 @@ function Experience() {
               className={`${styles.timelineItem} ${idx % 2 === 0 ? styles.left : styles.right}`}
               onClick={() => setSelectedExp(idx)}
               style={{ 
-                cursor: 'pointer'
+                cursor: 'pointer',
+                width: '100%'
               }}
             >
               <div 
@@ -94,7 +95,8 @@ function Experience() {
                 style={{
                   backgroundColor: selectedExp === idx 
                     ? (isDarkMode ? '#3d3d3d' : '#e0e0e0')
-                    : 'transparent'
+                    : 'transparent',
+                  width: '100%'
                 }}
               >
                 <div className={styles.period}>{exp.period}</div>
@@ -129,7 +131,8 @@ function Experience() {
                 backgroundColor: isDarkMode ? '#2d2d2d' : '#f5f5f5',
                 boxShadow: isDarkMode 
                   ? '0 4px 6px rgba(0, 0, 0, 0.3)'
-                  : '0 4px 6px rgba(0, 0, 0, 0.1)'
+                  : '0 4px 6px rgba(0, 0, 0, 0.1)',
+                width: '100%'
               }}
             >
               <div className={styles.currentPeriod}>{experiences[selectedExp].period}</div>
