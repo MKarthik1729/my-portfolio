@@ -25,7 +25,7 @@ const Resume = () => {
         style={{ backgroundColor: '#ffffff' }}
       >
         <iframe
-          src={`/Karthik_resume_2.6.pdf#toolbar=0&view=FitH`}
+          src={`/MKarthik2.9.pdf#toolbar=0&view=FitH`}
           width="100%"
           height="100%"
           title="Resume PDF"

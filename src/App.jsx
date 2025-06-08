@@ -2,7 +2,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
-import { Navbar, Home, Projects, Skills, SkillPage, Contact, Resume, NotFound, TakeArtToHeart, TaskManagementApp, ECommercePlatform, WeatherDashboard, PortfolioWebsite, SocialMediaDashboard, FitnessTrackingApp } from './Components';
+import { Navbar, Home, Projects, Skills, SkillPage, Contact, Resume, NotFound, TakeArtToHeart, TaskManagementApp, ECommercePlatform, WeatherDashboard, PortfolioWebsite, SocialMediaDashboard, FitnessTrackingApp, Experience } from './Components';
 import SkillStyleChange from './SkillStyleChange';
 import './App.css';
 
@@ -16,6 +16,7 @@ function App() {
               <Navbar />
               <Home />
               <SkillStyleChange />
+              <Experience />
               <Projects />
               {/* <Skills /> */}
             </>
@@ -29,6 +30,7 @@ function App() {
           <Route path="/projects" element={
             <>
               <Navbar />
+              <Experience />
               <Projects />
             </>
           } />
