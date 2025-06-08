@@ -30,6 +30,7 @@ function App() {
           <Route path="/projects" element={
             <>
               <Navbar />
+              <Experience />
               <Projects />
             </>
           } />

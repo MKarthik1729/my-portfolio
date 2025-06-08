@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { experience as styles } from './styled';
+import { useTheme } from '../context/ThemeContext';
 
 function Experience() {
   const [selectedExp, setSelectedExp] = useState(0);
+  const { isDarkMode } = useTheme();
 
   const experiences = [
     {
@@ -66,7 +68,15 @@ function Experience() {
   };
 
   return (
-    <section id="experience" className={styles.experienceV2} style={{ width: '100vw', maxWidth: '100vw', margin: 0, padding: 0 }}>
+    <section 
+      id="experience" 
+      className={styles.experienceV2} 
+      style={{ 
+        backgroundColor: isDarkMode ? 'var(--bg-primary)' : 'var(--bg-primary)',
+        color: isDarkMode ? 'var(--text-primary)' : 'var(--text-primary)'
+      }}
+    >
+      <div className={styles.honeycombPattern} />
       <h2 className={styles.titleV2}>Work Experience</h2>
       <div className={styles.timelineGrid}>
         <div className={styles.timelineCenter}>
@@ -75,15 +85,36 @@ function Experience() {
               key={idx}
               className={`${styles.timelineItem} ${idx % 2 === 0 ? styles.left : styles.right}`}
               onClick={() => setSelectedExp(idx)}
-              style={{ cursor: 'pointer' }}
+              style={{ 
+                cursor: 'pointer'
+              }}
             >
-              <div className={`${styles.timelineContent} ${selectedExp === idx ? styles.selectedBlock : ''}`}>
+              <div 
+                className={`${styles.timelineContent} ${selectedExp === idx ? styles.selectedBlock : ''}`}
+                style={{
+                  backgroundColor: selectedExp === idx 
+                    ? (isDarkMode ? '#3d3d3d' : '#e0e0e0')
+                    : 'transparent'
+                }}
+              >
                 <div className={styles.period}>{exp.period}</div>
               </div>
-              <div className={`${styles.timelineDot} ${selectedExp === idx ? styles.selectedDot : ''}`}></div>
+              <div 
+                className={`${styles.timelineDot} ${selectedExp === idx ? styles.selectedDot : ''}`}
+                style={{
+                  backgroundColor: selectedExp === idx 
+                    ? (isDarkMode ? '#4a90e2' : '#007bff')
+                    : (isDarkMode ? '#666666' : '#999999')
+                }}
+              ></div>
             </div>
           ))}
-          <div className={styles.timelineLineMain}></div>
+          <div 
+            className={styles.timelineLineMain}
+            style={{
+              backgroundColor: isDarkMode ? '#666666' : '#999999'
+            }}
+          ></div>
         </div>
         <div className={styles.timelineRight}>
           <AnimatePresence mode="wait">
@@ -94,6 +125,12 @@ function Experience() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.3 }}
+              style={{
+                backgroundColor: isDarkMode ? '#2d2d2d' : '#f5f5f5',
+                boxShadow: isDarkMode 
+                  ? '0 4px 6px rgba(0, 0, 0, 0.3)'
+                  : '0 4px 6px rgba(0, 0, 0, 0.1)'
+              }}
             >
               <div className={styles.currentPeriod}>{experiences[selectedExp].period}</div>
               <div className={styles.currentTitle}>{experiences[selectedExp].title} @ {experiences[selectedExp].company}</div>
@@ -109,6 +146,9 @@ function Experience() {
                     key={idx}
                     variants={pointVariants}
                     className={styles.experiencePoint}
+                    style={{
+                      color: isDarkMode ? '#e0e0e0' : '#333333'
+                    }}
                   >
                     {point}
                   </motion.li>

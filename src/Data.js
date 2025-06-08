@@ -28,33 +28,33 @@ const Data = [
         "technologies": ["React", "Node.js", "Express", "MongoDB", "Redux"],
         "dedicatedRoute": "take-art-to-heart"
     },
-    {
-        "id": 4,
-        "img": './robo.jpg',
-        "title": "Bluetooth Vehicle",
-        "tag": "IOT and Aurdino",
-        "link": "#skills",
-        "technologies": ["Arduino", "C++", "Bluetooth", "IoT"],
-        "dedicatedRoute": "weather-dashboard"
-    },
-    {
-        "id": 5,
-        "img": "./scrape.png",
-        "title": "Automated Web Scrapper",
-        "tag": "Python Selenium",
-        "link": "https://github.com/MKarthik1729/automatedWebScrapper",
-        "technologies": ["Python", "Selenium", "Web Scraping", "Automation"],
-        "dedicatedRoute": "social-media-dashboard"
-    },
-    {
-        "id": 6,
-        "img": "./cool.jpg",
-        "title": "Library System",  
-        "tag": "Java and MySQL",
-        "link": "#skills",
-        "technologies": ["Java", "MySQL", "Swing", "JDBC"],
-        "dedicatedRoute": "task-management-app"
-    }
+    // {
+    //     "id": 4,
+    //     "img": './robo.jpg',
+    //     "title": "Bluetooth Vehicle",
+    //     "tag": "IOT and Aurdino",
+    //     "link": "#skills",
+    //     "technologies": ["Arduino", "C++", "Bluetooth", "IoT"],
+    //     "dedicatedRoute": "weather-dashboard"
+    // },
+    // {
+    //     "id": 5,
+    //     "img": "./scrape.png",
+    //     "title": "Automated Web Scrapper",
+    //     "tag": "Python Selenium",
+    //     "link": "https://github.com/MKarthik1729/automatedWebScrapper",
+    //     "technologies": ["Python", "Selenium", "Web Scraping", "Automation"],
+    //     "dedicatedRoute": "social-media-dashboard"
+    // },
+    // {
+    //     "id": 6,
+    //     "img": "./cool.jpg",
+    //     "title": "Library System",  
+    //     "tag": "Java and MySQL",
+    //     "link": "#skills",
+    //     "technologies": ["Java", "MySQL", "Swing", "JDBC"],
+    //     "dedicatedRoute": "task-management-app"
+    // }
 ]
 
 export default Data

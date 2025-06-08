@@ -317,12 +317,15 @@
 }
 
 .experience-v2 {
-  padding: 4rem 0;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  width: 100vw;
-  max-width: 100vw;
-  margin: 0;
+  min-height: 100vh;
+  padding: 80px 20px;
+  background: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+
+  @media (max-width: $breakpoint-md) {
+    padding: 60px 15px;
+  }
 }
 
 .title-v2 {
@@ -330,6 +333,11 @@
   font-size: 2.5rem;
   margin-bottom: 3rem;
   color: var(--primary);
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
 }
 
 .timeline-grid {
@@ -482,6 +490,10 @@
   width: 100%;
   margin: 0 auto;
   padding: 2rem 0;
+
+  @media (max-width: $breakpoint-md) {
+    padding: 1rem 0;
+  }
 }
 
 .timelineLineMain {
@@ -494,6 +506,10 @@
   opacity: 0.2;
   transform: translateX(-50%);
   z-index: 0;
+
+  @media (max-width: $breakpoint-md) {
+    left: 20px;
+  }
 }
 
 .timelineItem {
@@ -504,6 +520,12 @@
   align-items: center;
   margin: 2rem 0;
   min-height: 120px;
+
+  @media (max-width: $breakpoint-md) {
+    margin: 1.5rem 0;
+    min-height: 80px;
+    padding-left: 40px;
+  }
 }
 
 .timelineDot {
@@ -518,6 +540,11 @@
   border-radius: 50%;
   z-index: 2;
   box-shadow: 0 0 0 3px #e9dffc;
+
+  @media (max-width: $breakpoint-md) {
+    left: 20px;
+    transform: translateY(-50%);
+  }
 }
 
 .timelineContent {
@@ -527,6 +554,11 @@
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   width: 40%;
+
+  @media (max-width: $breakpoint-md) {
+    width: 100%;
+    padding: 15px;
+  }
 }
 
 .left .timelineContent {
@@ -534,6 +566,11 @@
   margin-left: 0;
   text-align: right;
   align-self: flex-end;
+
+  @media (max-width: $breakpoint-md) {
+    margin-right: 0;
+    text-align: left;
+  }
 }
 
 .right .timelineContent {
@@ -541,10 +578,18 @@
   margin-right: 0;
   text-align: left;
   align-self: flex-start;
+
+  @media (max-width: $breakpoint-md) {
+    margin-left: 0;
+  }
 }
 
 .left {
   flex-direction: row-reverse;
+
+  @media (max-width: $breakpoint-md) {
+    flex-direction: row;
+  }
 }
 
 .right {
@@ -565,4 +610,15 @@
     align-items: flex-start;
     min-height: 100px;
   }
+}
+
+.honeycombPattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.5;
+  z-index: 0;
 } 
